@@ -41,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/line" />
+        app:srcCompat="@drawable/S011_Suggested_01" />
 
 
     <!-- 周辺情報ボタン -->
@@ -61,6 +61,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/shiuhen" />
+        app:srcCompat="@drawable/S011_Suggested_02" />
 
 </android.support.constraint.ConstraintLayout>

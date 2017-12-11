@@ -14,10 +14,10 @@
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kaisathu" />
+        app:srcCompat="@drawable/S002_Input_03" />
 
 
-    <!-- 設定ボタン -->
+    <!-- 設定ボタン
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="21dp"
@@ -27,8 +27,8 @@
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kaisathu2" />
-
+        app:srcCompat="@drawable/S002_Input_03" />
+    -->
 
     <!-- 音楽設定 -->
     <Button
