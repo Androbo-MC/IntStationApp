@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 起動画面 -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- 入力欄1 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox1"
         android:layout_width="170dp"
@@ -18,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.423" />
 
+    <!-- 入力欄2 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox2"
         android:layout_width="170dp"
@@ -29,6 +32,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/inputBox1"
         app:layout_constraintRight_toRightOf="@+id/inputBox1" />
 
+    <!-- 入力欄3 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox3"
         android:layout_width="170dp"
@@ -40,6 +44,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/inputBox2"
         app:layout_constraintRight_toRightOf="@+id/inputBox2" />
 
+    <!-- 入力欄4 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox4"
         android:layout_width="170dp"
@@ -53,6 +58,7 @@
         app:layout_constraintRight_toRightOf="@+id/inputBox3"
         tools:layout_editor_absoluteX="95dp" />
 
+    <!-- 入力欄5 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox5"
         android:layout_width="170dp"
@@ -64,7 +70,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-
+    <!-- ガイドライン -->
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -74,6 +80,7 @@
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <!-- 検索ボタン -->
     <Button
         android:id="@+id/searchButton"
         android:layout_width="170dp"
@@ -85,6 +92,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <!-- 設定ボタン -->
     <Button
         android:id="@+id/settingButton"
         android:layout_width="70dp"
@@ -97,6 +105,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <!-- クリアボタン -->
     <Button
         android:id="@+id/clearButton"
         android:layout_width="70dp"
