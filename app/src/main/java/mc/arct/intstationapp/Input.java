@@ -7,6 +7,10 @@ import android.widget.AutoCompleteTextView;
 
 import java.util.ArrayList;
 
+/**
+ * 入力画面
+ */
+
 public class Input extends AppCompatActivity {
 
     //カウンター
@@ -19,7 +23,7 @@ public class Input extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.S002_Input);
+        setContentView(R.layout.s002_input);
 
         // 入力欄をリストに格納
         inputBoxList.add((AutoCompleteTextView) findViewById(R.id.inputBox1));

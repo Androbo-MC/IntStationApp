@@ -12,6 +12,6 @@ public class Link extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.S007_link);
+        setContentView(R.layout.s007_link);
     }
 }

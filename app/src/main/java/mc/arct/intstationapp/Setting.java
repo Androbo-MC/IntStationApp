@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by sekiguchinatsuo on 2017/12/11.
+ * 設定
  */
 
 public class Setting extends AppCompatActivity {
@@ -12,6 +12,6 @@ public class Setting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.S013_setting);
+        setContentView(R.layout.s013_setting);
     }
 }

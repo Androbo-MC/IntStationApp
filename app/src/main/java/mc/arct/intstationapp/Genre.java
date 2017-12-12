@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by sekiguchinatsuo on 2017/12/11.
+ * ジャンル
  */
 
 public class Genre extends AppCompatActivity {
@@ -12,6 +12,6 @@ public class Genre extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.S006_genre);
+        setContentView(R.layout.s006_genre);
     }
 }

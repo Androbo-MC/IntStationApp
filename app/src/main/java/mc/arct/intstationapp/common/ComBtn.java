@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import mc.arct.intstationapp.R;
 
 /**
- * Created by sekiguchinatsuo on 2017/12/11.
+ * 共通ボタン
  */
 
 public class ComBtn extends AppCompatActivity{
