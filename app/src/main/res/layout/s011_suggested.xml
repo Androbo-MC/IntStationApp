@@ -7,7 +7,7 @@
 
     <!-- 駅名ボタン -->
     <TextView
-        android:id="@+id/stationName"
+        android:id="@+id/stationNameTextBox"
         android:layout_width="220dp"
         android:layout_height="56dp"
         android:layout_marginBottom="8dp"
@@ -38,9 +38,9 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
-        app:layout_constraintStart_toEndOf="@+id/stationName"
+        app:layout_constraintStart_toEndOf="@+id/stationNameTextBox"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/s011_Suggested_01" />
+        app:srcCompat="@drawable/s011_suggested_01" />
 
     <!-- 周辺情報ボタン -->
     <ImageButton
@@ -59,6 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lineButton"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/s011_Suggested_02" />
+        app:srcCompat="@drawable/s011_suggested_02" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageButton
+        android:id="@+id/suggestedImgBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginStart="24dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/routeImgBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/routeImgBtn"
+        app:srcCompat="@drawable/combtn_01" />
+
+    <ImageButton
+        android:id="@+id/routeImgBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginStart="12dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/suggestedImgBtn"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+        app:srcCompat="@drawable/combtn_02" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginStart="13dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintStart_toEndOf="@+id/routeImgBtn"
+        app:layout_constraintTop_toTopOf="@+id/imageButton4"
+        app:srcCompat="@drawable/combtn_03" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginStart="13dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="@+id/imageButton5"
+        app:srcCompat="@drawable/combtn_04" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="13dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:srcCompat="@drawable/combtn_05" />
 </android.support.constraint.ConstraintLayout>
