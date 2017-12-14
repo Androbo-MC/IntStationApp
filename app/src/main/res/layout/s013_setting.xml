@@ -15,7 +15,7 @@
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/s002_Input_03" />
+        app:srcCompat="@drawable/s002_input_03" />
     -->
 
 
@@ -29,7 +29,7 @@
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/s002_Input_03" />
+        app:srcCompat="@drawable/s002_input_03" />
 
 
     <!-- 音楽ボタン -->
