@@ -102,5 +102,4 @@ public class StationDAO {
         // 結果値を格納したリストを返却
         return stationList;
     }
-
 }
