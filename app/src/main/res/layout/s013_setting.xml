@@ -20,54 +20,58 @@
 
 
     <!-- 設定ボタン -->
-    <ImageButton
-        android:id="@+id/settingImageButton"
-        android:layout_width="90dp"
-        android:layout_height="165dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="182dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/clearImageButton"
-        app:srcCompat="@drawable/s002_input_03" />
+    <!--<ImageButton-->
+        <!--android:id="@+id/imgBtnSetting"-->
+        <!--android:layout_width="90dp"-->
+        <!--android:layout_height="165dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="182dp"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:onClick="btnSettingOnClick"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="1.0"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/clearImageButton"-->
+        <!--app:srcCompat="@drawable/s002_input_03" />-->
 
-
-    <!-- 音楽ボタン -->
-    <Button
-        android:id="@+id/musicButton"
-        android:layout_width="40dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="284dp"
-        android:text="♪"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--余裕があれば作成する-->
+    <!--&lt;!&ndash; 音楽ボタン &ndash;&gt;-->
+    <!--<Button-->
+        <!--android:id="@+id/btnMusic"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="42dp"-->
+        <!--android:layout_marginStart="288dp"-->
+        <!--android:layout_marginTop="284dp"-->
+        <!--android:text="♪"-->
+        <!--android:onClick="btnMusicOnClick"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <!-- アニメーションボタン-->
-    <Button
-        android:id="@+id/animationButton"
-        android:layout_width="40dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="324dp"
-        android:text="▷"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/btnAnimation"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="42dp"-->
+        <!--android:layout_marginStart="220dp"-->
+        <!--android:layout_marginTop="324dp"-->
+        <!--android:text="▷"-->
+        <!--android:onClick="btnAnimationOnClick"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <!-- 言語ボタン -->
-    <Button
-        android:id="@+id/languageButton"
-        android:layout_width="40dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="408dp"
-        android:text="A"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/btnLanguage"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="42dp"-->
+        <!--android:layout_marginStart="200dp"-->
+        <!--android:layout_marginTop="408dp"-->
+        <!--android:text="A"-->
+        <!--android:onClick="btnLanguageOnClick"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 </android.support.constraint.ConstraintLayout>
