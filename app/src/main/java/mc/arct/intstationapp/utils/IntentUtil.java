@@ -208,4 +208,22 @@ public class IntentUtil {
             return dialog;
         }
     }
+
+    /**
+     * 周辺情報画面への遷移準備
+     *
+     * @param activity 実行中Activityのthis
+     * @param stationList 入力されていた駅情報のリスト
+     * @param resultVO 検索結果として選ばれた候補の駅
+     * @return Intent 画面遷移に必要な情報を保持したIntent
+     */
+    public static Intent prepareForMapsActivity(Activity activity, ArrayList<StationDetailVO> stationList, StationDetailVO resultVO) {
+
+        // 入力されていた駅情報のリストと候補駅を次の画面に送る準備
+        Intent intent = new Intent(activity, Result.class)
+                .putExtra("stationList", stationList)
+                .putExtra("resultStation", resultVO);
+        return intent;
+    }
+
 }

@@ -23,10 +23,11 @@
 
         <!-- 周辺情報ボタン -->
         <ImageButton
-            android:id="@+id/imgBtn_Line"
+            android:id="@+id/imgBtn_Area"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
+            android:onClick="btnAREAOnClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgBtnArea"
@@ -34,10 +35,11 @@
 
         <!-- LINEボタン -->
         <ImageButton
-            android:id="@+id/imgBtn_Area"
+            android:id="@+id/imgBtn_Line"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
+            android:onClick="btnLINEOnClick"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/combtn_02" />

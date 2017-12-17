@@ -3,6 +3,7 @@ package mc.arct.intstationapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -10,7 +11,9 @@ import java.util.ArrayList;
 
 import mc.arct.intstationapp.models.StationDetailVO;
 import mc.arct.intstationapp.models.StationDistanceVO;
+import mc.arct.intstationapp.storage.StationDAO;
 import mc.arct.intstationapp.utils.CalculateUtil;
+import mc.arct.intstationapp.utils.IntentUtil;
 
 /**
  * 候補駅
@@ -26,7 +29,7 @@ public class Suggested extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.s011_suggested);
+        setContentView(R.layout.s011_suggested_lst);
 
         // アプリケーションクラスのインスタンスを取得(今回は無し)
 
@@ -44,5 +47,22 @@ public class Suggested extends AppCompatActivity{
         stationDistanceList.subList(10, stationDistanceList.size()).clear();
     }
 
+    private void btnLINEOnClick (String stationName){
+        Object object = IntentUtil.prepareForLINE(this,stationName);
+        if (object instanceof Intent){
+            Intent intent = (Intent)object;
+            startActivity(intent);
+        }
+        else{
+            // todo:dialog
+        }
 
+    }
+
+    private void btnAreaOnClick (String stationName){
+        StationDAO dao = new StationDAO(getApplicationContext());
+        StationDetailVO vo = dao.selectStationByName(stationName);
+        Intent intent = IntentUtil.prepareForMapsActivity(Suggested.this, stationList, vo);
+        startActivity(intent);
+    }
 }
