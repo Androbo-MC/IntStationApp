@@ -12,6 +12,6 @@ public class UnusedSetting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.s013_setting);
+        setContentView(R.layout.unused_s013_setting);
     }
 }
