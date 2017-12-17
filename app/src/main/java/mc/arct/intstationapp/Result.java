@@ -51,11 +51,10 @@ public class Result extends AppCompatActivity{
 
         // ここでID取得したレビュー(今回はレイアウト)が、ピンチアウトの対象になる
         layout = findViewById(R.id.result_train);
-        // ここに後でdetectorを入れる
 
-        // アプリケーションクラスのインスタンスを取得（今回は無し）
+        // todo:ここに後でdetectorを入れる
 
-        // 遷移前画面から入力駅情報リストを受け取る
+        // 入力画面から入力駅情報リストを受け取る
         Intent intent = getIntent();
         stationList =
                 (ArrayList<StationDetailVO>) intent.getSerializableExtra("result");
@@ -68,13 +67,13 @@ public class Result extends AppCompatActivity{
             latList.add(Double.parseDouble(vo.getLat()));
             lngList.add(Double.parseDouble(vo.getLng()));
         }
-        // 中間地点座標の取得
+        // todo:中間地点座標の取得
 
-        // 中間地点から近い座標にある駅を調べる
+        // todo:中間地点から近い座標にある駅を調べる
 
         // DB接続のためDAOを生成
         StationDAO dao = new StationDAO(getApplicationContext());
-        // 一番先頭にあるVOの駅情報を取得して返却
+        // todo:一番先頭にあるVOの駅情報を取得して返却
 
         // 駅名を表示
         searchResult = findViewById(R.id.staNameTextBox);
@@ -107,7 +106,7 @@ public class Result extends AppCompatActivity{
         timer.cancel();
     }
 
-    // 共有ボタンが押された時
+    // todo:共有ボタンが押された時
     public void callLINE(View v) {
 
         // LINE共有機能を呼び出す
@@ -127,9 +126,9 @@ public class Result extends AppCompatActivity{
         startActivity(intent);
     }
 
-    // 候補駅ボタンが押された時
+    // todo:候補駅ボタンが押された時
 
-    // ルートボタンが押された時
+    // todo:ルートボタンが押された時
 
     // ピンチアウト用に作成
     public boolean onTouchEvent(MotionEvent event) {
