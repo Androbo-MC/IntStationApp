@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import mc.arct.intstationapp.models.StationDetailVO;
 import mc.arct.intstationapp.models.StationDistanceVO;
 import mc.arct.intstationapp.storage.StationDAO;
 import mc.arct.intstationapp.utils.CalculateUtil;
+import mc.arct.intstationapp.utils.IntentUtil;
 
 /**
  * 検索結果
@@ -105,5 +108,45 @@ public class Result extends AppCompatActivity{
     }
 
     // 共有ボタンが押された時
+    public void callLINE(View v) {
 
+        // LINE共有機能を呼び出す
+        Object obj = IntentUtil.prepareForLINE(this, resultStation.getName());
+        // Intentが返却されていたら、LINE連携へ遷移する
+        if (obj instanceof Intent) {
+        // AlertDialog.Builderが返却されていたら、遷移せずダイアログを表示
+        } else if (obj instanceof AlertDialog.Builder);
+
+    }
+
+    // 周辺情報ボダンが押された時
+    public void callMapInfo(View v) {
+        // 画面遷移処理で、入力されていた駅情報のリストと候補駅を次の画面に送る
+        Intent intent = IntentUtil.prepareForArea(Result.this,
+                stationList, resultStation);
+        startActivity(intent);
+    }
+
+    // 候補駅ボタンが押された時
+
+    // ルートボタンが押された時
+
+    // ピンチアウト用に作成
+    public boolean onTouchEvent(MotionEvent event) {
+        //re-route the Touch Events to the ScaleListener class
+        detector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    // ピンチアウト用に作成
+    private class ScaleListener
+            extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector detector) {
+            scale *= detector.getScaleFactor();
+            layout.setScaleX(scale);
+            layout.setScaleY(scale);
+            return true;
+        }
+    }
 }
