@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
  * 設定
  */
 
-public class Setting extends AppCompatActivity {
+public class UnusedSetting extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

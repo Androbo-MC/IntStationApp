@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by sekiguchinatsuo on 2017/12/11.
  */
 
-public class Link extends AppCompatActivity{
+public class UnusedLink extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
