@@ -1,11 +1,17 @@
 package mc.arct.intstationapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import mc.arct.intstationapp.models.StationDetailVO;
+import mc.arct.intstationapp.storage.StationDAO;
+import mc.arct.intstationapp.utils.IntentUtil;
 
 /**
  * 入力画面
@@ -13,17 +19,16 @@ import java.util.ArrayList;
 
 public class Input extends AppCompatActivity {
 
-    //カウンター
-    private int counter = 0;
+
     //入力欄を格納するリスト
     private ArrayList<AutoCompleteTextView> inputBoxList = new ArrayList<>();
-    //入力値を格納するリスト
-    private ArrayList<String> inputStationNameList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.s002_input);
+
+        getIntent();
 
         // 入力欄をリストに格納
         inputBoxList.add((AutoCompleteTextView) findViewById(R.id.inputBox1));
@@ -33,41 +38,70 @@ public class Input extends AppCompatActivity {
         inputBoxList.add((AutoCompleteTextView) findViewById(R.id.inputBox5));
     }
 
+    /**
+     * 検索ボタン
+     * @param view
+     */
     public void searchButtonOnClick(View view) {
-        // 入力値をリストに格納
-        for (AutoCompleteTextView text : inputBoxList) {
-            // 空の入力欄は含まない
-            if (!text.getText().toString().isEmpty()) {
-                inputStationNameList.add(text.getText().toString());
-            }
-        }
 
-        // 位置情報取得メソッドに入力値を渡す。
-        for (String text : inputStationNameList){
-            if (null != text && !text.isEmpty()){
-                counter++;
-                getPlaceInfo(text);
+        ArrayList<StationDetailVO> lstStation = setLstStation();
+
+        screenTransition(lstStation);
+
+        Intent intent = new Intent(this,Result.class);
+        startActivity(intent);
+        Input.this.finish();
+
+    }
+
+    private ArrayList<StationDetailVO> setLstStation () {
+
+        ArrayList<StationDetailVO>  lstStation =new ArrayList<>();
+
+        for (AutoCompleteTextView txtView : inputBoxList) {
+
+            if (txtView.getText().toString().isEmpty()) {
+                continue;
             }
+            String station = txtView.getText().toString();
+            StationDAO dao = new StationDAO(getApplicationContext());
+            StationDetailVO vo = dao.selectStationByName(station);
+
+            if (vo == null){
+                // todo:dialogmsg
+                return null;
+            }
+
+            lstStation.add(vo);
+        }
+        return  lstStation;
+
+    }
+
+    private void screenTransition(ArrayList<StationDetailVO> lstStation){
+
+        if(!lstStation.isEmpty() || lstStation != null){
+            Intent intent = IntentUtil.prepareForResult(this,lstStation);
+            startActivity(intent);
+        }
+        else{
+            // todo:dialogmsg
         }
 
     }
 
-    private void getPlaceInfo(String text){
-
-        // TODO : DBから値を取得。
-
-    }
-
+    /**
+     * クリアボタン
+     * @param view
+     */
     public void clearButtonOnClick(View view){
 
         // 全ての入力欄に空文字を設定する。
         for (AutoCompleteTextView inputBox : inputBoxList){
+            // 空文字セットする
             inputBox.setText("");
         }
 
     }
 
-    public void settingButtonOnClick(View view){
-        // TODO:設定画面を表示する処理を記述する。
-    }
 }
