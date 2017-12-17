@@ -10,7 +10,7 @@
     <!-- 入力欄1 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox1"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="8dp"
@@ -24,7 +24,7 @@
     <!-- 入力欄2 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox2"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="19dp"
@@ -38,7 +38,7 @@
     <!-- 入力欄3 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox3"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="19dp"
@@ -52,7 +52,7 @@
     <!-- 入力欄4 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox4"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_below="@+id/inputBox3"
         android:layout_marginBottom="15dp"
@@ -67,7 +67,7 @@
     <!-- 入力欄5 -->
     <AutoCompleteTextView
         android:id="@+id/inputBox5"
-        android:layout_width="170dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_below="@+id/inputBox4"
         android:layout_marginBottom="200dp"
