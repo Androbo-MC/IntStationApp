@@ -47,7 +47,7 @@ public class Suggested extends AppCompatActivity{
         stationDistanceList.subList(10, stationDistanceList.size()).clear();
     }
 
-    private void btnLINEOnClick (String stationName){
+    public void btnLINEOnClick (String stationName){
         Object object = IntentUtil.prepareForLINE(this,stationName);
         if (object instanceof Intent){
             Intent intent = (Intent)object;
@@ -59,7 +59,7 @@ public class Suggested extends AppCompatActivity{
 
     }
 
-    private void btnAreaOnClick (String stationName){
+    public void btnAREAOnClick (String stationName){
         StationDAO dao = new StationDAO(getApplicationContext());
         StationDetailVO vo = dao.selectStationByName(stationName);
         Intent intent = IntentUtil.prepareForMapsActivity(Suggested.this, stationList, vo);
