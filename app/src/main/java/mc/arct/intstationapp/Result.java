@@ -12,6 +12,8 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.Timer;
 
@@ -29,13 +31,8 @@ public class Result extends AppCompatActivity{
 
     private ArrayList<StationDetailVO> stationList;
     private StationDetailVO resultStation;
-    // ここに後でLatLngを入れる
+    private LatLng centerLatLng;
     private TextView searchResult;
-    // タスクを実行するタイマー
-    private Timer timer;
-    Handler handler;
-    // 点滅状態を保持する
-    private boolean isBlink = false;
     // 全アクティビティで使えるアプリケーションクラス（今回は無し）
     // 文字スクロール制御フラグ
     private boolean is_scroll = false;
@@ -51,8 +48,7 @@ public class Result extends AppCompatActivity{
 
         // ここでID取得したレビュー(今回はレイアウト)が、ピンチアウトの対象になる
         layout = findViewById(R.id.result_train);
-
-        // todo:ここに後でdetectorを入れる
+        detector = new ScaleGestureDetector(this, new ScaleListener());
 
         // 入力画面から入力駅情報リストを受け取る
         Intent intent = getIntent();
@@ -67,14 +63,15 @@ public class Result extends AppCompatActivity{
             latList.add(Double.parseDouble(vo.getLat()));
             lngList.add(Double.parseDouble(vo.getLng()));
         }
-        // todo:中間地点座標の取得
-
-        // todo:中間地点から近い座標にある駅を調べる
-
+        // 中間地点座標の取得
+        centerLatLng = CalculateUtil.calcCenterLatLng(latList, lngList);
+        // 中間地点から近い座標にある駅を調べる
+        ArrayList<StationDistanceVO> stationDistanceList
+                = CalculateUtil.calcNearStationsList(centerLatLng, getApplicationContext());
         // DB接続のためDAOを生成
         StationDAO dao = new StationDAO(getApplicationContext());
-        // todo:一番先頭にあるVOの駅情報を取得して返却
-
+        // 一番先頭にあるVOの駅情報を取得して返却
+        resultStation = dao.selectStationByName(stationDistanceList.get(0).getName());
         // 駅名を表示
         searchResult = findViewById(R.id.staNameTextBox);
         // Touchモード時にViewがフォーカスを取得可能か設定(文字スクロールに必要)
@@ -97,13 +94,6 @@ public class Result extends AppCompatActivity{
                     }
                 }
         );
-    }
-
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        // アクティビティが落ちる時にタイマーも終了させる
-        timer.cancel();
     }
 
     // todo:共有ボタンが押された時

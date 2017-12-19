@@ -1,9 +1,12 @@
 package mc.arct.intstationapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 
 import mc.arct.intstationapp.models.StationDetailVO;
 import mc.arct.intstationapp.utils.CalculateUtil;
+import mc.arct.intstationapp.utils.IntentUtil;
 
 /**
  * 周辺情報画面
@@ -41,8 +45,8 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
         // 遷移前画面から駅情報リストと候補駅を受け取る
         Intent intent = getIntent();
         stationList =
-                (ArrayList<StationDetailVO>)intent.getSerializableExtra("stationList");
-        resultStation = (StationDetailVO)intent.getSerializableExtra("resultStation");
+                (ArrayList<StationDetailVO>) intent.getSerializableExtra("stationList");
+        resultStation = (StationDetailVO) intent.getSerializableExtra("resultStation");
 
         // 緯度経度を計算用のリストに格納
         for (StationDetailVO vo : stationList) {
@@ -131,22 +135,50 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
     @Override
     public void onInfoWindowClick(Marker marker) {
         // 情報ウインドウがタップされた時の処理
-//        new AlertDialog.Builder(this)
-//                .setTitle("周辺駅検索")
-//                .setMessage("この地点の周辺駅情報を表示しますか？")
-//                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        // 周辺駅表示
-//                    }
-//                })
-//                .setNegativeButton("キャンセル", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        // 何もしない
-//                    }
-//                })
-//                .show();
     }
 
+    // todo:共有ボタンが押された時
+    // ジャンルボタンが押された時
+    public void callGenre(View v) {
+        // 各ジャンルを配列に格納
+        final String[] items = {"レストラン", "居酒屋", "カフェ", "コンビニ", "カラオケ"};
+        // デフォルトでチェックされているアイテム
+        int defaultItem = 0;
+        final ArrayList<Integer> checkedItems = new ArrayList<>();
+        // 最初にデフォルトリストに追加しておく
+        checkedItems.add(defaultItem);
+        new AlertDialog.Builder(this)
+                .setTitle("ジャンル選択")
+                // ラジオボタンの設定
+                .setSingleChoiceItems(items, defaultItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // クリックされたら、今ある番号をクリアして新しい番号を格納
+                        checkedItems.clear();
+                        checkedItems.add(which);
+                    }
+                })
+                // OKボタンの設定
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (checkedItems.isEmpty()) {
+                            // ジャンルが決定されたら、外部連携のURL情報を取得
+                            Intent intent = IntentUtil.prepareForExternalInfo(
+                                    resultStation, checkedItems.get(0));
+                            // ブラウザを起動する
+                            startActivity(intent);
+                        }
+                    }
+                })
+                // キャンセルボタンの設定
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (!checkedItems.isEmpty()) {
+                        }
+                    }
+                })
+                .show();
+    }
 }
