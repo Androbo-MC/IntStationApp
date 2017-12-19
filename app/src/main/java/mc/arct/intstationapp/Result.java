@@ -41,6 +41,7 @@ public class Result extends AppCompatActivity{
     private float scale = 1f;
     private ScaleGestureDetector detector;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
