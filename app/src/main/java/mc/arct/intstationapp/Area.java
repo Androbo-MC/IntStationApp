@@ -37,6 +37,7 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
     private ArrayList<Double> lngList = new ArrayList<>();
     private ArrayList<Double> latLngList = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
