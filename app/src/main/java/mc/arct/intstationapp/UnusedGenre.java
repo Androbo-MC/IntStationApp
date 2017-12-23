@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
  * ジャンル
  */
 
-public class Genre extends AppCompatActivity {
+public class UnusedGenre extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
