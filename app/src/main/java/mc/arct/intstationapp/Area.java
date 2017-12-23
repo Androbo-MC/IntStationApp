@@ -67,9 +67,9 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
 
         for (int i = 0; i < stationList.size(); i++) {
             // 取得した座標の数だけピンをセットする
-//            latLngList.add(new LatLng(latList.get(i), lngList.get(i)));
-//            map.addMarker(new MarkerOptions().position(latLngList.get(i))
-//                    .title(stationList.get(i).getName() + "駅"));
+//              latLngList.add(new LatLng(latList.get(i), lngList.get(i)));
+//              map.addMarker(new MarkerOptions().position(latLngList.get(i))
+//                      .title(stationList.get(i).getName() + "駅"));
         }
         // 中間地点座標の取得
         centerLatLng = CalculateUtil.calcCenterLatLng(latList, lngList);
