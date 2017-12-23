@@ -61,15 +61,29 @@ public class ConvertUtil {
     }
 
     /**
+     * 円とコンマを削除して数値に変換するメソッド
+     *
+     * @param str "1,000円"の書式の文字列
+     * @return int 円とコンマを削除した数値
+     */
+    public static int removeYenAndComma(String str) {
+        //
+        String newStr = str.substring(0, str.indexOf("円"))
+                .replaceAll(",","");
+        //
+        return Integer.parseInt(newStr);
+    }
+
+    /**
      * 数値に円とコンマを追加するメソッド
      *
      * @param value 円とコンマを削除した数値
      * @return "1,000円"の書式の文字列
      */
     public static String addYenAndComma(int value) {
-        // NumberFormatインスタンス(コンマが簡単に足せる)を生成
+        //
         NumberFormat nf = NumberFormat.getNumberInstance();
-        // 円をつけて返却
+        //
         return (nf.format(value) + "円");
     }
 
