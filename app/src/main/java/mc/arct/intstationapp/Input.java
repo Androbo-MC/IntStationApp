@@ -3,8 +3,10 @@ package mc.arct.intstationapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +70,11 @@ public class Input extends AppCompatActivity {
             StationDetailVO vo = dao.selectStationByName(station);
 
             if (vo == null){
-                // todo:dialogmsg
+                // 入力した駅名の駅情報を取得できない場合、ダイアログを出力
+                Toast erorrlog;
+                erorrlog = Toast.makeText(getApplicationContext(),station + "：駅の情報取得ができません", Toast.LENGTH_LONG);
+                erorrlog.setGravity(Gravity.CENTER,0, 0);
+                erorrlog.show();
                 return null;
             }
 
@@ -85,7 +91,12 @@ public class Input extends AppCompatActivity {
             startActivity(intent);
         }
         else{
-            // todo:dialogmsg
+            // 駅名を入力していない場合、ダイアログを出力
+            Toast erorrlog;
+            erorrlog = Toast.makeText(getApplicationContext(),"駅名を入力して下さい", Toast.LENGTH_LONG);
+            erorrlog.setGravity(Gravity.CENTER,0, 0);
+            erorrlog.show();
+
         }
 
     }
