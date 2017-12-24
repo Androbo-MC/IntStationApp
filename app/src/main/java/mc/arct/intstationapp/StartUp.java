@@ -16,10 +16,8 @@ public class StartUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.s001_startup);
-// todo:Error
         // ハンドラーを設定
         Handler handler = new Handler();
-//        handler.postDelayed(new splashHandler(),2000);
         handler.postDelayed(new Runnable() {
             public void run() {
                 Intent intent = new Intent(getApplication(),Input.class);
