@@ -197,8 +197,8 @@ public class IntentUtil {
         } catch(PackageManager.NameNotFoundException e) {
             //インストールされてなかったら、インストールを要求する
             AlertDialog.Builder dialog = new AlertDialog.Builder(activity)
-                    .setTitle("LINEが見つかりません。")
-                    .setMessage("LINEをインストールしてやり直して下さい。")
+                    .setTitle("LINEが見つかりません")
+                    .setMessage("LINEをインストールしてやり直して下さい")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
