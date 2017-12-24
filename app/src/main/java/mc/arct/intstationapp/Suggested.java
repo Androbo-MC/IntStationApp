@@ -60,7 +60,7 @@ public class Suggested extends AppCompatActivity{
         else{
             // LINEがインストールされてない場合、ダイアログを出力
             Toast erorrlog;
-            erorrlog = Toast.makeText(getApplicationContext(), "LINEが見つかりません。\nLINEをインストールしてやり直して下さい。", Toast.LENGTH_LONG);
+            erorrlog = Toast.makeText(getApplicationContext(), "LINEが見つかりません\nLINEをインストールしてやり直して下さい", Toast.LENGTH_LONG);
             erorrlog.setGravity(Gravity.CENTER,0, 0);
             erorrlog.show();
 
