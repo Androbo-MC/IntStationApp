@@ -27,7 +27,7 @@
         <activity android:name=".Route"/>
         <activity android:name=".Area"/>
         <activity android:name=".Suggested"/>
-        <activity android:name=".utils.ComBtn"/>
+        <activity android:name=".common.ComBtn"/>
 
         <!-- GoogleMap機能を使うために必要なAPIキー -->
         <meta-data
