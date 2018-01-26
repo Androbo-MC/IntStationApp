@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 英語の表記をここに記述 -->
+    <string name="app_name">Meet Halfway</string>
+    <string name="app_name_short">Halfway</string>
+    <string name="kensaku">Search</string>
+    <string name="clear">Clear</string>
+    <string name="settei">Settings</string>
+    <string name="koho_eki">Candidates</string>
+    <string name="kyoyu">Share</string>
+    <string name="route">Route</string>
+    <string name="shuhen_joho">Map Info</string>
+    <string name="genre">Category</string>
+    <string name="shuhen">Map</string>
+    <string name="ongaku">Sound</string>
+    <string name="anime">Animation</string>
+    <string name="gengo">Language</string>
+    <string name="tsuika">Add</string>
+    <string name="hint_input">Input a station name!</string>
+
+    <!-- Javaソースの方もIDで文字列呼び出せばローカライズできる -->
+    <string name="main_toast1">:couldn\'t get the station info.</string>
+    <string name="main_toast2">Input a station name!</string>
+    <!-- ダイアログ内のメッセージ -->
+    <string name="main_dialog1_title">Language settings: English to Japanese</string>
+    <string name="main_dialog1_message">Would you like to change the language settings?</string>
+    <string name="main_dialog1_positive">OK</string>
+    <string name="main_dialog1_negative">Cancel</string>
+    <string name="main_dialog2_title">Language settings changed: English to Japanese</string>
+    <string name="main_dialog2_message">Would you like to enable the change now?</string>
+    <string name="main_dialog2_positive">Yes</string>
+    <string name="main_dialog2_negative">No</string>
+
+</resources>
