@@ -5,128 +5,300 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mc.arct.intstationapp.Input">
+    tools:context="mc.arct.intstationapp.activities.Input">
 
-    <!-- 入力欄1 -->
-    <AutoCompleteTextView
-        android:id="@+id/inputBox1"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="8dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/inputBox2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <!-- 入力欄2 -->
-    <AutoCompleteTextView
-        android:id="@+id/inputBox2"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="19dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/inputBox3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/inputBox1"
-        app:layout_constraintRight_toRightOf="@+id/inputBox1"
-        app:layout_constraintTop_toBottomOf="@+id/inputBox1" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
 
-    <!-- 入力欄3 -->
-    <AutoCompleteTextView
-        android:id="@+id/inputBox3"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="19dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/inputBox4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/inputBox2"
-        app:layout_constraintRight_toRightOf="@+id/inputBox2"
-        app:layout_constraintTop_toBottomOf="@+id/inputBox2" />
+            <!-- 入力欄1と2をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke1"
+                style="@style/stroke"
+                android:layout_marginLeft="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox2"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox1"
+                app:layout_constraintTop_toTopOf="@+id/inputBox1" />
+            <!-- 入力ボックス1と2をつなぐ線の左側隠し -->
+            <TextView
+                android:id="@+id/stroke1_cover"
+                style="@style/strokeCover"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox2"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox1"
+                app:layout_constraintTop_toTopOf="@+id/inputBox1" />
 
-    <!-- 入力欄4 -->
-    <AutoCompleteTextView
-        android:id="@+id/inputBox4"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputBox3"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="19dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/inputBox5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/inputBox3"
-        app:layout_constraintRight_toRightOf="@+id/inputBox3"
-        app:layout_constraintTop_toBottomOf="@+id/inputBox3" />
+            <!-- 入力ボックス2と3をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke2"
+                style="@style/stroke"
+                android:layout_marginRight="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox3"
+                app:layout_constraintRight_toRightOf="@+id/inputBox2"
+                app:layout_constraintTop_toTopOf="@+id/inputBox2" />
+            <!-- 入力ボックス2と3をつなぐ線の右側隠し -->
+            <TextView
+                android:id="@+id/stroke2_cover"
+                style="@style/strokeCover"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox3"
+                app:layout_constraintRight_toRightOf="@+id/inputBox2"
+                app:layout_constraintTop_toTopOf="@+id/inputBox2" />
 
-    <!-- 入力欄5 -->
-    <AutoCompleteTextView
-        android:id="@+id/inputBox5"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputBox4"
-        android:layout_marginBottom="200dp"
-        android:layout_marginTop="19dp"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputBox4" />
+            <!-- 入力ボックス3と4をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke3"
+                style="@style/stroke"
+                android:layout_marginLeft="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox4"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox3"
+                app:layout_constraintTop_toTopOf="@+id/inputBox3" />
+            <!-- 入力ボックス3と4をつなぐ線の左側隠し -->
+            <TextView
+                android:id="@+id/stroke3_cover"
+                style="@style/strokeCover"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox4"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox3"
+                app:layout_constraintTop_toTopOf="@+id/inputBox3" />
 
-    <!-- ガイドライン -->
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="0dp" />
+            <!-- 入力ボックス4と5をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke4"
+                style="@style/stroke"
+                android:layout_marginRight="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox5"
+                app:layout_constraintRight_toRightOf="@+id/inputBox4"
+                app:layout_constraintTop_toTopOf="@+id/inputBox4" />
+            <!-- 入力ボックス4と5をつなぐ線の右側隠し -->
+            <TextView
+                android:id="@+id/stroke4_cover"
+                style="@style/strokeCover"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox5"
+                app:layout_constraintRight_toRightOf="@+id/inputBox4"
+                app:layout_constraintTop_toTopOf="@+id/inputBox4" />
 
-    <!-- 検索ボタン -->
-    <!--<Button-->
-        <!--android:id="@+id/searchButton"-->
-        <!--android:layout_width="170dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginBottom="150dp"-->
-        <!--android:onClick="searchButtonOnClick"-->
-        <!--android:text="検　索"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent" />-->
+            <!-- 入力ボックス5と6をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke5"
+                style="@style/stroke"
+                android:layout_marginLeft="1dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox6"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox5"
+                app:layout_constraintTop_toTopOf="@+id/inputBox5" />
+            <!-- 入力ボックス5と6をつなぐ線の左側隠し -->
+            <TextView
+                android:id="@+id/stroke5_cover"
+                style="@style/strokeCover"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox6"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox5"
+                app:layout_constraintTop_toTopOf="@+id/inputBox5" />
 
-    <!-- 検索ボタン -->
-    <ImageButton
-        android:id="@+id/serchImageButton"
-        android:layout_width="90dp"
-        android:layout_height="165dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginStart="182dp"
-        android:onClick="searchButtonOnClick"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/clearImageButton"
-        app:srcCompat="@drawable/s002_input_03" />
+            <!-- 入力ボックス6と7をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke6"
+                style="@style/stroke"
+                android:layout_marginRight="1dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox7"
+                app:layout_constraintRight_toRightOf="@+id/inputBox6"
+                app:layout_constraintTop_toTopOf="@+id/inputBox6" />
+            <!-- 入力ボックス6と7をつなぐ線の右側隠し -->
+            <TextView
+                android:id="@+id/stroke6_cover"
+                style="@style/strokeCover"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox7"
+                app:layout_constraintRight_toRightOf="@+id/inputBox6"
+                app:layout_constraintTop_toTopOf="@+id/inputBox6" />
 
-    <!-- クリアボタン -->
-    <ImageButton
-        android:id="@+id/clearImageButton"
-        android:layout_width="90dp"
-        android:layout_height="165dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="65dp"
-        android:onClick="clearButtonOnClick"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/s002_input_02" />
+            <!-- 入力ボックス7と8をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke7"
+                style="@style/stroke"
+                android:layout_marginLeft="1dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox8"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox7"
+                app:layout_constraintTop_toTopOf="@+id/inputBox7" />
+            <!-- 入力ボックス7と8をつなぐ線の左側隠し -->
+            <TextView
+                android:id="@+id/stroke7_cover"
+                style="@style/strokeCover"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox8"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox7"
+                app:layout_constraintTop_toTopOf="@+id/inputBox7" />
+
+            <!-- 入力ボックス8と9をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke8"
+                style="@style/stroke"
+                android:layout_marginRight="1dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox9"
+                app:layout_constraintRight_toRightOf="@+id/inputBox8"
+                app:layout_constraintTop_toTopOf="@+id/inputBox8" />
+            <!-- 入力ボックス8と9をつなぐ線の右側隠し -->
+            <TextView
+                android:id="@+id/stroke8_cover"
+                style="@style/strokeCover"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox9"
+                app:layout_constraintRight_toRightOf="@+id/inputBox8"
+                app:layout_constraintTop_toTopOf="@+id/inputBox8" />
+
+            <!-- 入力ボックス9と10をつなぐ線 -->
+            <TextView
+                android:id="@+id/stroke9"
+                style="@style/stroke"
+                android:layout_marginLeft="1dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox10"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox9"
+                app:layout_constraintTop_toTopOf="@+id/inputBox9" />
+            <!-- 入力ボックス9と10をつなぐ線の左側隠し -->
+            <TextView
+                android:id="@+id/stroke9_cover"
+                style="@style/strokeCover"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/inputBox10"
+                app:layout_constraintLeft_toLeftOf="@+id/inputBox9"
+                app:layout_constraintTop_toTopOf="@+id/inputBox9" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox1"
+                style="@style/inputTextBox"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/hint_input"
+                app:layout_constraintBottom_toTopOf="@+id/inputBox2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox2"
+                style="@style/inputTextBox"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/inputBox3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox3"
+                style="@style/inputTextBox"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/inputBox4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox4"
+                style="@style/inputTextBox"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/inputBox5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <!-- この5番目のテキストボックスが今のところ中心位置 -->
+            <AutoCompleteTextView
+                android:id="@+id/inputBox5"
+                style="@style/inputTextBox"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 6番目以降は普段はvisibility="gone"で存在消して、必要な時に表示 -->
+            <AutoCompleteTextView
+                android:id="@+id/inputBox6"
+                style="@style/inputTextBox"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox5" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox7"
+                style="@style/inputTextBox"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox6" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox8"
+                style="@style/inputTextBox"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox7" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox9"
+                style="@style/inputTextBox"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox8" />
+
+            <AutoCompleteTextView
+                android:id="@+id/inputBox10"
+                style="@style/inputTextBox"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox9" />
+
+            <ImageButton
+                android:id="@+id/addImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/s002_input_01"
+                android:onClick="addInputBox"
+                android:text="@string/tsuika"
+                app:layout_constraintBottom_toBottomOf="@id/inputBox2"
+                app:layout_constraintRight_toLeftOf="@id/inputBox2" />
+
+            <ImageButton
+                android:id="@+id/searchImageButton"
+                android:layout_width="90dp"
+                android:layout_height="165dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="65dp"
+                android:layout_marginStart="182dp"
+                android:onClick="searchButtonOnClick"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/clearImageButton"
+                app:srcCompat="@drawable/s002_input_03" />
+
+            <ImageButton
+                android:id="@+id/clearImageButton"
+                android:layout_width="90dp"
+                android:layout_height="165dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="65dp"
+                android:onClick="clearButtonOnClick"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/s002_input_02" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>
