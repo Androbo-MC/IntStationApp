@@ -97,4 +97,34 @@ public class StationDAO {
         // 結果値を格納したリストを返却
         return vo;
     }
+
+    // 全ての駅情報を取得するメソッド
+    public ArrayList<StationDetailVO> selectAllStations() {
+
+        // 結果返却用リスト
+        ArrayList<StationDetailVO> stationList = new ArrayList<>();
+        // DBから全情報を取得
+        Cursor cursor = db.rawQuery("SELECT name, kana, pref_cd, lat, lng, gnavi_id, jorudan_name, romaji FROM station",
+                null);
+
+        while (cursor.moveToNext()) {
+            // カーソルから各項目を取得
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            String kana = cursor.getString(cursor.getColumnIndex("kana"));
+            String prefCd = cursor.getString(cursor.getColumnIndex("pref_cd"));
+            String lat = cursor.getString(cursor.getColumnIndex("lat"));
+            String lng = cursor.getString(cursor.getColumnIndex("lng"));
+            String gnaviId = cursor.getString(cursor.getColumnIndex("gnavi_id"));
+            String jorudanName = cursor.getString(cursor.getColumnIndex("jorudan_name"));
+            String romaji = cursor.getString(cursor.getColumnIndex("romaji"));
+            // DBから取得した値を格納したVOを生成
+            StationDetailVO vo = new StationDetailVO(name, kana, prefCd, lat, lng, gnaviId, jorudanName, romaji);
+            // VOをリストに格納
+            stationList.add(vo);
+        }
+        // 使用済カーソルはクローズする
+        cursor.close();
+        // 結果値を格納したリストを返却
+        return stationList;
+    }
 }
