@@ -40,7 +40,7 @@ public class Searching extends AppCompatActivity {
         stationList =
                 (ArrayList<StationDetailVO>) intent.getSerializableExtra("result");
         // キャラクターを貼っているビューを取得
-        ImageView searchingTrain = findViewById(R.id.searchImageButton);
+        ImageView searchingTrain = findViewById(R.id.searching_train);
         // 拡大アニメーションの設定(キャラクターの拡大)
         // pivotを両方0.5fにすると拡大の起点がViewの中心からになる
         ScaleAnimation scale = new ScaleAnimation(

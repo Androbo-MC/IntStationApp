@@ -260,8 +260,9 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/inputBox9" />
 
-            <ImageButton
-                android:id="@+id/addImageButton"
+            <Button
+                android:id="@+id/add_Button"
+                style="@style/commonButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/s002_input_01"
@@ -270,34 +271,36 @@
                 app:layout_constraintBottom_toBottomOf="@id/inputBox2"
                 app:layout_constraintRight_toLeftOf="@id/inputBox2" />
 
-            <ImageButton
-                android:id="@+id/searchImageButton"
-                android:layout_width="90dp"
-                android:layout_height="165dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="65dp"
-                android:layout_marginStart="182dp"
-                android:onClick="searchButtonOnClick"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/clearImageButton"
-                app:srcCompat="@drawable/s002_input_03" />
+            <Button
+                android:id="@+id/clear_Button"
+                style="@style/commonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/s002_input_02"
+                android:onClick="clearAll"
+                android:text="@string/clear"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox10" />
 
-            <ImageButton
-                android:id="@+id/clearImageButton"
-                android:layout_width="90dp"
-                android:layout_height="165dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="65dp"
-                android:onClick="clearButtonOnClick"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/s002_input_02" />
+            <Button
+                android:id="@+id/search_Button"
+                style="@style/commonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableTop="@drawable/s002_input_03"
+                android:onClick="search"
+                android:text="@string/kensaku"
+                app:layout_constraintHorizontal_bias="0.7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputBox10" />
 
         </android.support.constraint.ConstraintLayout>
+
     </ScrollView>
 
 
