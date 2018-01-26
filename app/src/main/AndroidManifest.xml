@@ -14,20 +14,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".StartUp">
+        android:theme="@style/AppTheme"
+        android:configChanges="locale" >
+        <activity android:name=".activities.StartUp"
+            android:label="@string/app_name_short" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Input"/>
-        <activity android:name=".Result"/>
-        <activity android:name=".Route"/>
-        <activity android:name=".Area"/>
-        <activity android:name=".Suggested"/>
+        <activity android:name=".activities.Input"/>
+        <activity android:name=".activities.Result"/>
+        <activity android:name=".activities.Route"/>
+        <activity android:name=".activities.Area"/>
+        <activity android:name=".activities.Suggested"/>
         <activity android:name=".common.ComBtn"/>
+        <activity android:name=".activities.Searching"/>
 
         <!-- GoogleMap機能を使うために必要なAPIキー -->
         <meta-data
