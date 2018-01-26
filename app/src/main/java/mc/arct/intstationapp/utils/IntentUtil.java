@@ -11,16 +11,14 @@ import android.net.Uri;
 
 import java.util.ArrayList;
 
-import mc.arct.intstationapp.Area;
-import mc.arct.intstationapp.Input;
-import mc.arct.intstationapp.Result;
-import mc.arct.intstationapp.Route;
-import mc.arct.intstationapp.Suggested;
+import mc.arct.intstationapp.activities.Area;
+import mc.arct.intstationapp.activities.Input;
+import mc.arct.intstationapp.activities.Result;
+import mc.arct.intstationapp.activities.Route;
+import mc.arct.intstationapp.activities.Searching;
+import mc.arct.intstationapp.activities.Suggested;
 import mc.arct.intstationapp.models.StationDetailVO;
 import mc.arct.intstationapp.models.StationTransferVO;
-import mc.arct.intstationapp.models.StationVO;
-
-import static java.lang.Character.LINE_SEPARATOR;
 
 /**
  * 画面遷移準備共通クラス
@@ -38,6 +36,21 @@ public class IntentUtil {
 
         // メイン画面には何も送らないでそのまま返却
         return new Intent(context, Input.class);
+    }
+
+    /**
+     * 検索中画面への遷移準備
+     *
+     * @param activity 実行中Activityのthis
+     * @param stationList 入力されていた駅情報のリスト
+     * @return Intent 画面遷移に必要な情報を保持したIntent
+     */
+    public static Intent prepareForSearching(Activity activity, ArrayList<StationDetailVO> stationList) {
+
+        // 入力されていた駅情報のリストを次の画面に送る準備
+        Intent intent = new Intent(activity, Searching.class)
+                .putExtra("result", stationList);
+        return intent;
     }
 
     /**
