@@ -1,3 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 固定値の文字列はここに書く。多言語対応の際はこれの英語版を作る。 -->
     <string name="app_name">IntStationApp</string>
+    <string name="app_name_short">中間地点</string>
+    <string name="kensaku">検索</string>
+    <string name="clear">クリア</string>
+    <string name="settei">設定</string>
+    <string name="koho_eki">候補駅</string>
+    <string name="kyoyu">共有</string>
+    <string name="route">ルート</string>
+    <string name="shuhen_joho">周辺情報</string>
+    <string name="genre">ジャンル</string>
+    <string name="shuhen">周辺</string>
+    <string name="ongaku">音楽</string>
+    <string name="anime">アニメ</string>
+    <string name="gengo">言語</string>
+    <string name="tsuika">追加</string>
+    <string name="hint_input">駅名を入力してください</string>
+
+    <!-- Javaソースの方もIDで文字列呼び出せばローカライズできる -->
+    <string name="main_toast1">：駅情報が取得できません</string>
+    <string name="main_toast2">駅名を入力して下さい</string>
+    <!-- ダイアログ内のメッセージ -->
+    <string name="main_dialog1_title">言語設定変更：日本語→英語</string>
+    <string name="main_dialog1_message">言語設定を変更しますか？</string>
+    <string name="main_dialog1_positive">OK</string>
+    <string name="main_dialog1_negative">キャンセル</string>
+    <string name="main_dialog2_title">変更完了：日本語→英語</string>
+    <string name="main_dialog2_message">変更をすぐに反映しますか？</string>
+    <string name="main_dialog2_positive">はい</string>
+    <string name="main_dialog2_negative">いいえ</string>
+
 </resources>
