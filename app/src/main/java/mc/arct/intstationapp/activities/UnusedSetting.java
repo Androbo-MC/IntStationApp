@@ -1,7 +1,9 @@
-package mc.arct.intstationapp;
+package mc.arct.intstationapp.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import mc.arct.intstationapp.R;
 
 /**
  * 設定

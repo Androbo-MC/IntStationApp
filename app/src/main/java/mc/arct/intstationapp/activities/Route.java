@@ -1,17 +1,19 @@
-package mc.arct.intstationapp;
+package mc.arct.intstationapp.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import mc.arct.intstationapp.R;
+
 /**
- * リンク
+ * ルート
  */
 
-public class UnusedLink extends AppCompatActivity{
+public class Route extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.unused_s007_link);
+        setContentView(R.layout.s008_route);
     }
 }

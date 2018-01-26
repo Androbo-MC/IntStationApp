@@ -1,8 +1,7 @@
-package mc.arct.intstationapp;
+package mc.arct.intstationapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +14,8 @@ import android.widget.TextView;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
+import mc.arct.intstationapp.R;
 import mc.arct.intstationapp.models.StationDetailVO;
 import mc.arct.intstationapp.models.StationDistanceVO;
 import mc.arct.intstationapp.storage.StationDAO;

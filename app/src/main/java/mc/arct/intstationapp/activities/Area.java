@@ -1,4 +1,4 @@
-package mc.arct.intstationapp;
+package mc.arct.intstationapp.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;

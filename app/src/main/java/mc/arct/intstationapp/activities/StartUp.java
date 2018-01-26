@@ -1,4 +1,4 @@
-package mc.arct.intstationapp;
+package mc.arct.intstationapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 
+import mc.arct.intstationapp.R;
 import mc.arct.intstationapp.utils.IntentUtil;
 
 /**
