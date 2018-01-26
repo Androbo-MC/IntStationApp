@@ -1,5 +1,6 @@
 package mc.arct.intstationapp.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -8,12 +9,12 @@ import java.util.ArrayList;
  * 乗り換え情報を保持する。
  */
 
-public class StationTransferVO extends StationVO {
+public class StationTransferVO implements Serializable {
 
+    // 出発駅名
+    private String stationFrom;
     // 到着駅名
-    private String destName;
-    // 到着駅仮名
-    private String destKana;
+    private String stationTo;
     // 所要時間("分"のみの整数で格納)
     private int time;
     // 料金
@@ -22,44 +23,27 @@ public class StationTransferVO extends StationVO {
     private int transfer;
     // 乗り換え途中駅リスト
     private ArrayList<String> transferList;
+    // 検索URL
+    private String searchURL;
 
     // コンストラクタ
-    public StationTransferVO(String name, String destName) {
+    public StationTransferVO(String stationFrom, String stationTo, String searchURL) {
 
-        super(name);
-        this.destName = destName;
+        this.stationFrom = stationFrom;
+        this.stationTo = stationTo;
         this.time = 0;
         this.cost = 0;
         this.transfer = 0;
         this.transferList = new ArrayList<>();
+        this.searchURL = searchURL;
     }
 
-    public StationTransferVO(String name, String kana, String destName, String destKana,
-                             int time, int cost, int transfer) {
-
-        super(name, kana);
-        this.destName = destName;
-        this.destKana = destKana;
-        this.time = time;
-        this.cost = cost;
-        this.transfer = transfer;
-        this.transferList = new ArrayList<>();
+    public String getStationFrom() {
+        return stationFrom;
     }
 
-    public String getDestName() {
-        return destName;
-    }
-
-    public void setDestName(String destName) {
-        this.destName = destName;
-    }
-
-    public String getDestKana() {
-        return destKana;
-    }
-
-    public void setDestKana(String destKana) {
-        this.destKana = destKana;
+    public String etStationTo() {
+        return stationTo;
     }
 
     public int getTime() {
@@ -94,17 +78,24 @@ public class StationTransferVO extends StationVO {
         this.transferList = transferList;
     }
 
+    public String getSearchURL() {
+        return searchURL;
+    }
+
+    public void setSearchURL(String searchURL) {
+        this.searchURL = searchURL;
+    }
+
     @Override
     public String toString() {
         return "StationTransferVO{" +
-                "name='" + getName() + '\'' +
-                "kana='" + getKana() + '\'' +
-                ", destName='" + destName + '\'' +
-                ", destKana='" + destKana + '\'' +
+                "stationFrom='" + stationFrom + '\'' +
+                ", stationTo='" + stationTo + '\'' +
                 ", time=" + time +
                 ", cost=" + cost +
                 ", transfer=" + transfer +
                 ", transferList=" + transferList +
+                ", searchURL='" + searchURL + '\'' +
                 '}';
     }
 }

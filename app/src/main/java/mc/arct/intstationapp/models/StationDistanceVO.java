@@ -23,10 +23,9 @@ public class StationDistanceVO extends StationVO {
 
     @Override
     public String toString() {
-        return "StationDistanceVO{" +
-                "name='" + getName() + '\'' +
-                "kana='" + getKana() + '\'' +
-                ", distance=" + distance +
+        return super.toString() + "\n" +
+                "StationDistanceVO{" +
+                "distance=" + distance +
                 '}';
     }
 }
