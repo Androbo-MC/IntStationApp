@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import mc.arct.intstationapp.R;
+import mc.arct.intstationapp.adapters.MyAdapterForAutoComplete;
 import mc.arct.intstationapp.models.StationDetailVO;
 import mc.arct.intstationapp.storage.MyPreferenceManager;
 import mc.arct.intstationapp.storage.StationDAO;
@@ -61,6 +62,8 @@ public class Input extends AppCompatActivity {
         }
         for (AutoCompleteTextView textView : inputBoxList) {
             // 自分で定義したアダプターをビューに設定する
+            MyAdapterForAutoComplete myAdapter = new MyAdapterForAutoComplete(getApplicationContext());
+            textView.setAdapter(myAdapter);
             // 何文字目から予測変換を出すかを設定
             textView.setThreshold(1);
             // 改行ボタンでキーボードを閉じる設定(これをやらないとキーボードから次のテキストに進めない)
