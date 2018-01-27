@@ -29,6 +29,6 @@
             android:text="乗換" />
     </android.support.design.widget.TabLayout>
 
-    <include layout="@layout/com_btn"/>
+    <include layout="@layout/com_btn_route"/>
 
 </android.support.constraint.ConstraintLayout>

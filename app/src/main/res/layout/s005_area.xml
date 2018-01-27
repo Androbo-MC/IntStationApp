@@ -14,6 +14,6 @@
         android:layout_height="match_parent"
         tools:context="mc.arct.intstationapp.activities.Area" />
 
-    <include layout="@layout/com_btn" />
+    <include layout="@layout/com_btn_area" />
 
 </android.support.constraint.ConstraintLayout>

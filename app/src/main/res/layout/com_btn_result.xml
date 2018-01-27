@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom|center_horizontal"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <Button
+        android:id="@+id/button_suggested"
+        android:onClick="callSuggestedStations"
+        android:text="@string/koho_eki"
+        android:drawableTop="@drawable/combtn_01"
+        style="@style/horizontalBarButton" />
+
+    <Button
+        android:id="@+id/button_map_info"
+        android:onClick="callMapInfo"
+        android:text="@string/shuhen_joho"
+        android:drawableTop="@drawable/combtn_02"
+        style="@style/horizontalBarButton" />
+
+    <Button
+        android:id="@+id/button_route"
+        android:onClick="callRoute"
+        android:text="@string/route"
+        android:drawableTop="@drawable/combtn_03"
+        style="@style/horizontalBarButton" />
+
+    <Button
+        android:id="@+id/button_share"
+        android:onClick="callLINE"
+        android:text="@string/kyoyu"
+        android:drawableTop="@drawable/combtn_05"
+        style="@style/horizontalBarButton" />
+
+</LinearLayout>

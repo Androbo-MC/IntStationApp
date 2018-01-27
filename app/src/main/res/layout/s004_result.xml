@@ -47,6 +47,6 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <include layout="@layout/com_btn"/>
+    <include layout="@layout/com_btn_result"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -31,7 +31,7 @@ public class Suggested extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.s011_suggested_lst);
+        setContentView(R.layout.s011_suggested_station);
 
         // アプリケーションクラスのインスタンスを取得(今回は無し)
 
