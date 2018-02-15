@@ -114,15 +114,16 @@ public class Result extends AppCompatActivity{
     public void callLINE(View v) {
 
         // LINE共有機能を呼び出す
-        Object obj = IntentUtil.prepareForLINE(this, resultStation.getName());
+        Object obj = IntentUtil.prepareForLINE(this, stationList, resultStation);
         // Intentが返却されていたら、LINE連携へ遷移する
         if (obj instanceof Intent) {
+            Intent intent = (Intent)obj;
+            startActivity(intent);
         // AlertDialog.Builderが返却されていたら、遷移せずダイアログを表示
         } else if (obj instanceof AlertDialog.Builder) {
             AlertDialog.Builder dialog = (AlertDialog.Builder)obj;
             dialog.show();
         }
-
     }
 
     // 周辺情報ボダンが押された時
