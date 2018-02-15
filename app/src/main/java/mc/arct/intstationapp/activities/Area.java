@@ -23,6 +23,9 @@ import java.util.ArrayList;
 
 import mc.arct.intstationapp.R;
 import mc.arct.intstationapp.models.StationDetailVO;
+import mc.arct.intstationapp.models.StationTransferVO;
+import mc.arct.intstationapp.network.JorudanInfoTask;
+import mc.arct.intstationapp.network.MyNetworkManager;
 import mc.arct.intstationapp.utils.CalculateUtil;
 import mc.arct.intstationapp.utils.IntentUtil;
 
@@ -69,9 +72,9 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
 
         for (int i = 0; i < stationList.size(); i++) {
             // 取得した座標の数だけピンをセットする
-              latLngList.add(new LatLng(latList.get(i), lngList.get(i)));
-              map.addMarker(new MarkerOptions().position(latLngList.get(i))
-                      .title(stationList.get(i).getName() + "駅"));
+            latLngList.add(new LatLng(latList.get(i), lngList.get(i)));
+            map.addMarker(new MarkerOptions().position(latLngList.get(i))
+                    .title(stationList.get(i).getName() + "駅"));
         }
         // 中間地点座標の取得
         centerLatLng = CalculateUtil.calcCenterLatLng(latList, lngList);
@@ -139,7 +142,22 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
         // 情報ウインドウがタップされた時の処理
     }
 
-    // todo:共有ボタンが押された時
+    // 共有ボタンが押された時
+    public void callLINE(View v) {
+        // LINE共有機能を呼び出す
+        Object obj = IntentUtil.prepareForLINE(this, stationList, resultStation);
+        // Intentが返却されていたら、LINE連携へ遷移する
+        if (obj instanceof Intent) {
+            Intent intent = (Intent)obj;
+            startActivity(intent);
+            // AlertDialog.Builderが返却されていたら、遷移せずダイアログを表示
+        } else if (obj instanceof AlertDialog.Builder) {
+            AlertDialog.Builder dialog = (AlertDialog.Builder)obj;
+            dialog.show();
+        }
+    }
+
+
     // ジャンルボタンが押された時
     public void callGenre(View v) {
         // 各ジャンルを配列に格納
@@ -183,4 +201,43 @@ public class Area extends AppCompatActivity implements OnMapReadyCallback,
                 })
                 .show();
     }
+
+    // 候補駅ボタンが押された時
+    public void callSuggestedStations(View v) {
+        // 画面遷移処理で、入力されていた駅情報のリストと中間地点座標を次の画面に送る
+        Intent intent = IntentUtil.prepareForSuggested(Area.this, stationList,
+                centerLatLng.latitude, centerLatLng.longitude);
+        startActivity(intent);
+    }
+
+    // ルートボタンが押された時
+    public void callRoute(View v) {
+        //　ネットワークの接続状態を確認
+        android.app.AlertDialog.Builder dialog = MyNetworkManager.checkConnection(this);
+        if (dialog == null) {
+            // ジョルダンに経路検索のリクエストを送る
+            final JorudanInfoTask jit = new JorudanInfoTask(this, stationList,
+                    resultStation.getJorudanName());
+            // ここから非同期処理終了後の処理を記述する
+            jit.setOnCallBack(new JorudanInfoTask.CallBackTask() {
+                @Override
+                public void CallBack() {
+                    super.CallBack();
+                    // 結果の取得
+                    ArrayList<StationTransferVO>[] resultInfoLists = jit.getResultInfoLists();
+                    // 画面遷移処理で、入力されていた駅情報のリストと候補駅を次の画面に送る
+                    Intent intent = IntentUtil.prepareForRoute(Area.this,
+                            stationList, resultStation,
+                            centerLatLng.latitude, centerLatLng.longitude, resultInfoLists);
+                    startActivity(intent);
+                }
+            });
+            // 非同期処理の実行
+            jit.execute();
+        } else {
+            // 電波なかったらダイアログ出す
+            dialog.show();
+        }
+    }
 }
+
