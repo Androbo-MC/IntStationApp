@@ -35,7 +35,7 @@ public class Suggested extends AppCompatActivity{
 
         // アプリケーションクラスのインスタンスを取得(今回は無し)
 
-        // 全画面から駅情報リストを受け取る
+        // 前画面から駅情報リストを受け取る
         Intent intent = getIntent();
         stationList = (ArrayList<StationDetailVO>) intent.getSerializableExtra("stationList");
         double centerLat = intent.getDoubleExtra("centerLat", 0);
@@ -49,27 +49,5 @@ public class Suggested extends AppCompatActivity{
         stationDistanceList.subList(10, stationDistanceList.size()).clear();
     }
 
-    public void btnLINEOnClick (String stationName){
-        Object object = IntentUtil.prepareForLINE(this,stationName);
-        if (object instanceof Intent){
-            Intent intent = (Intent)object;
-            startActivity(intent);
-        }
-        else{
-            // LINEがインストールされてない場合、ダイアログを出力
-            Toast erorrlog;
-            erorrlog = Toast.makeText(getApplicationContext(), "LINEが見つかりません\nLINEをインストールしてやり直して下さい", Toast.LENGTH_LONG);
-            erorrlog.setGravity(Gravity.CENTER,0, 0);
-            erorrlog.show();
 
-        }
-
-    }
-
-    public void btnAREAOnClick (String stationName){
-        StationDAO dao = new StationDAO(getApplicationContext());
-        StationDetailVO vo = dao.selectStationByName(stationName);
-        Intent intent = IntentUtil.prepareForMapsActivity(Suggested.this, stationList, vo);
-        startActivity(intent);
-    }
 }

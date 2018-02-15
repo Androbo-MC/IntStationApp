@@ -29,13 +29,13 @@ public class IntentUtil {
     /**
      * 入力画面への遷移準備
      *
-     * @param context コンテキスト(実行中ActivityのthisでOK)
+     * @param activity 実行中Activityのthis
      * @return Intent 画面遷移に必要な情報を保持したIntent
      */
-    public static Intent prepareForInput(Context context) {
+    public static Intent prepareForInput(Activity activity) {
 
         // メイン画面には何も送らないでそのまま返却
-        return new Intent(context, Input.class);
+        return new Intent(activity, Input.class);
     }
 
     /**
@@ -96,6 +96,7 @@ public class IntentUtil {
      */
     public static Intent prepareForSuggested(Activity activity, ArrayList<StationDetailVO> stationList,
                                              double centerLat, double centerLng) {
+
         // 入力されていた駅情報のリストと中間地点座標を次の画面に送る準備
         Intent intent = new Intent(activity, Suggested.class)
                 .putExtra("stationList", stationList)
@@ -124,8 +125,8 @@ public class IntentUtil {
                 .putExtra("stationList", stationList)
                 .putExtra("resultStation", resultStation)
                 .putExtra("centerLat", centerLat)
-                .putExtra("centerLng", centerLng)
-                .putExtra("resultInfoLists", resultInfoLists);
+                .putExtra("centerLng", centerLng);
+//                .putExtra("resultInfoLists", resultInfoLists);
         // 端末によってリストの配列がintentで正しく送れなかったので、要素を1個ずつ送る仕様に変更
         for (int i = 0; i < resultInfoLists.length; i++) {
             intent.putExtra("resultInfoList" + i, resultInfoLists[i]);
@@ -181,15 +182,17 @@ public class IntentUtil {
      * 共有(LINE)への遷移準備
      *
      * @param activity 実行中のActivityのthis
-     * @param stationName 検索結果として選ばれた候補駅の駅名
+     * @param stationList 出発駅のリスト
+     * @param resultStation 検索結果として選ばれた候補駅
      * @return Intent 画面遷移(LINE起動)に必要な情報を保持したIntent
      */
-    public static Object prepareForLINE(Activity activity, String stationName) {
+    public static Object prepareForLINE(Activity activity,
+                ArrayList<StationDetailVO> stationList, StationDetailVO resultStation) {
 
         // LINEのアプリID
-        String LINE_APP_ID = "jp.never.line.android";
+        String LINE_APP_ID = "jp.naver.line.android";
         // LINEで送る用の改行コード
-        String LIN_SEPARATOR = "%0D%0A";
+        String LINE_SEPARATOR = "%0D%0A";
         // アプリケーションクラスのインスタンスを取得
 
         try {
@@ -197,19 +200,31 @@ public class IntentUtil {
             PackageManager pm = activity.getPackageManager();
             // LINEがインストールされているかの確認
             ApplicationInfo appInfo = pm.getApplicationInfo(LINE_APP_ID, PackageManager.GET_META_DATA);
+
+            // LINEに送る文字列を生成
+            StringBuilder sb = new StringBuilder();
+            sb.append("line://msg/txt/中間地点候補：" + LINE_SEPARATOR
+                    + resultStation.getName() + "駅" + LINE_SEPARATOR
+                    + "" + LINE_SEPARATOR);
+            // 各出発駅～候補駅の経路検索情報を入れる
+            for (StationDetailVO inputStation : stationList) {
+                sb.append(inputStation.getName() + " ～ " + resultStation.getName() + LINE_SEPARATOR);
+                sb.append("https://www.jorudan.co.jp/norikae/cgi/nori.cgi?Sok=決%2B定&eki1="
+                        + inputStation.getJorudanName() +  "&eki2="
+                        + resultStation.getJorudanName() + LINE_SEPARATOR
+                        + "" + LINE_SEPARATOR);
+            }
+            sb.append("by 中間地点アプリ");
+
             // インストールされてたら、LINEへ
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("line://msg/text/" + "中間地点は…" + LIN_SEPARATOR
-                    + stationName + "駅" + LIN_SEPARATOR
-                    + "だよ！" + LIN_SEPARATOR
-                    + "by 中間地点アプリ"
-            ));
+            intent.setData(Uri.parse(sb.toString()));
             return intent;
 
         } catch(PackageManager.NameNotFoundException e) {
             //インストールされてなかったら、インストールを要求する
-            AlertDialog.Builder dialog = new AlertDialog.Builder(activity)
+            return new AlertDialog.Builder(activity)
                     .setTitle("LINEが見つかりません")
                     .setMessage("LINEをインストールしてやり直して下さい")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -218,24 +233,20 @@ public class IntentUtil {
                         }
                     })
                     .setCancelable(false);
-            return dialog;
         }
     }
 
     /**
-     * 周辺情報画面への遷移準備
+     * ジョルダン詳細情報への遷移準備
      *
-     * @param activity 実行中Activityのthis
-     * @param stationList 入力されていた駅情報のリスト
-     * @param resultVO 検索結果として選ばれた候補の駅
-     * @return Intent 画面遷移に必要な情報を保持したIntent
+     * @param searchURL Jorudan検索に使用したURL
+     * @return Intent 画面遷移(ブラウザ起動)に必要な情報を保持したIntent
      */
-    public static Intent prepareForMapsActivity(Activity activity, ArrayList<StationDetailVO> stationList, StationDetailVO resultVO) {
+    public static Intent prepareForJorudanDetailInfo(String searchURL) {
 
-        // 入力されていた駅情報のリストと候補駅を次の画面に送る準備
-        Intent intent = new Intent(activity, Result.class)
-                .putExtra("stationList", stationList)
-                .putExtra("resultStation", resultVO);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(searchURL));
         return intent;
     }
 
