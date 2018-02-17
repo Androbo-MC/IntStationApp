@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mc.arct.intstationapp.fragments.PageFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <!-- 同じレイアウトを10回インクルードして縦に並べる -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/route_info1"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info2"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info3"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info4"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info5"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info6"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info7"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info8"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info9"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <include
+                android:id="@+id/route_info10"
+                android:visibility="gone"
+                layout="@layout/s008_route_info" />
+            <!-- 画面下部のボタンで見えなくなるので、余白を作って多めにスクロールさせる -->
+            <include
+                android:id="@+id/route_info11"
+                layout="@layout/s008_route_info" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
