@@ -39,11 +39,9 @@ public class Result extends AppCompatActivity{
     private StationDetailVO resultStation;
     private LatLng centerLatLng;
     private TextView searchResult;
-    private TextView searchResultKana;
     // タスクを実行するタイマー
     private Timer timer;
     Handler handler;
-
     // 全アクティビティで使えるアプリケーションクラス（今回は無し）
     // 文字スクロール制御フラグ
     private boolean is_scroll = false;
@@ -91,7 +89,6 @@ public class Result extends AppCompatActivity{
         // 結果の駅名をタップすると、表示しきれないときは文字列スクロールの切り替え
         searchResult.setOnClickListener(
                 new View.OnClickListener() {
-                    @Override
                     public void onClick(View v) {
                         if (is_scroll) {
                             // 文字列を表示し切れないときには後ろを省略(元々はこれ)
