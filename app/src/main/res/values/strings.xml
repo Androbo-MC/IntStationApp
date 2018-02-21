@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 固定値の文字列はここに書く。多言語対応の際はこれの英語版を作る。 -->
-    <string name="app_name">IntStationApp</string>
+    <string name="app_name">CO↑CO↓</string>
     <string name="app_name_short">中間地点</string>
     <string name="kensaku">検索</string>
     <string name="clear">クリア</string>
