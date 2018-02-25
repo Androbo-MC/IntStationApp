@@ -186,4 +186,32 @@ public class Input extends AppCompatActivity {
         }
     }
 
+    // ボックス削除ボタンが押された時
+    public void deleteInputBox(View v) {
+        for (AutoCompleteTextView view : inputBoxList) {
+            // 1～10の入力ボックスを確認して、VISIBLEを見つけたらGONEにする
+            if (view.getVisibility() == View.VISIBLE) {
+                view.setVisibility(View.GONE);
+                // ひとつGONEにしたら(表示されるビューが一つ減る)、すぐにfor文のループ終了
+                break;
+            }
+        }
+        for (TextView view : strokeList) {
+            // 1～9の左右の線を確認して、VISIBLEを見つけたらGONEにする
+            if (view.getVisibility() == View.VISIBLE) {
+                view.setVisibility(View.GONE);
+                // ひとつGONEにしたら(表示されるビューが一つ減る)、すぐにfor文のループ終了
+                break;
+            }
+        }
+        for (TextView view : strokeCoverList) {
+            // 1～9の左右線のカバーを確認して、VISIBLEを見つけたらGONEにする
+            if (view.getVisibility() == View.VISIBLE) {
+                view.setVisibility(View.GONE);
+                // ひとつGONEにしたら(表示されるビューが一つ減る)、すぐにfor文のループ終了
+                break;
+            }
+        }
+    }
+
 }

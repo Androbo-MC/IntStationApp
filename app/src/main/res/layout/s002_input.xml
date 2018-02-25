@@ -265,11 +265,22 @@
                 style="@style/commonButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@drawable/s002_input_01"
+                android:drawableTop="@drawable/s002_input_04"
                 android:onClick="addInputBox"
                 android:text="@string/tsuika"
                 app:layout_constraintBottom_toBottomOf="@id/inputBox2"
                 app:layout_constraintRight_toLeftOf="@id/inputBox2" />
+
+            <Button
+                android:id="@+id/delete_Button"
+                style="@style/commonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/s002_input_05"
+                android:onClick="deleteInputBox"
+                android:text="@string/sakujo"
+                app:layout_constraintBottom_toBottomOf="@id/inputBox4"
+                app:layout_constraintRight_toLeftOf="@id/inputBox4" />
 
             <Button
                 android:id="@+id/clear_Button"

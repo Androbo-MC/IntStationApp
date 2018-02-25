@@ -16,6 +16,7 @@
     <string name="anime">アニメ</string>
     <string name="gengo">言語</string>
     <string name="tsuika">追加</string>
+    <string name="sakujo">削除</string>
     <string name="hint_input">駅名を入力してください</string>
 
     <!-- Javaソースの方もIDで文字列呼び出せばローカライズできる -->
