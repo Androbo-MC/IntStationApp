@@ -44,20 +44,20 @@ public class Searching extends AppCompatActivity {
         // 拡大アニメーションの設定(キャラクターの拡大)
         // pivotを両方0.5fにすると拡大の起点がViewの中心からになる
         ScaleAnimation scale = new ScaleAnimation(
-                0.0f,5.0f, 0.0f, 5.0f,
+                0.0f,170.0f, 0.0f, 170.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
         // 移動アニメーションの設定(左から右へ移動)
         TranslateAnimation ta = new TranslateAnimation(
-                Animation.RELATIVE_TO_SELF, -0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f);
+                Animation.RELATIVE_TO_SELF, -120.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 100.0f);
         // AnimationSetを使いアニメーションを合成する(複数同時に使う時はこれにまとめる)
         AnimationSet animeSet = new AnimationSet(false);
         animeSet.addAnimation(scale);
         animeSet.addAnimation(ta);
         // 3秒かけてアニメーションする
-        animeSet.setDuration(3000);
+        animeSet.setDuration(5000);
         // animationが終わったそのまま表示にする(元位置に戻らない)
         animeSet.setFillAfter(true);
         //アニメーションの開始
